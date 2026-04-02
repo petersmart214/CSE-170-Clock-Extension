@@ -1,3 +1,25 @@
+@import "../main.css";
+
+:root {
+  --primary: #8075FF;
+  --primary-dark: #5F55CC;
+  --primary-light: #A39BFF;
+
+  --background: #232528;
+  --surface: #2F3238;
+
+  --text: #E8E9F2;
+
+  --accent: #6FA9C9;
+
+  --light_background: #f5f5f5;
+  --light_surface: #ffffff;
+  --light_text: #232528;
+  --light_accent: #8075FF;
+  --line: #3A3B40;
+
+}
+
 
 #listType {
   display: block;
@@ -45,118 +67,118 @@ button[type="submit"] {
 
 /* Theme: dark */
 body.theme-dark {
-  background-color: #232528;
-  color: #ffffff;
+  background-color: var(--background);
+  color: var(--text);
 }
 
 body.theme-dark .tab-container {
-  border-bottom: 1px solid #2f3238;
-  background-color: #2f3238;
+  border-bottom: 1px solid var(--surface);
+  background-color: var(--surface);
 }
 
 body.theme-dark .tab-btn {
-  color: #A39BFF;
+  color: var(--primary-light);
 }
 
 body.theme-dark .tab-btn.active {
-  color: #ffffff;
-  border-bottom: 3px solid #8075FF;
+  color: var(--text);
+  border-bottom: 3px solid var(--primary);
 }
 
 body.theme-dark .tab-content {
-  background-color: #2f3238;
+  background-color: var(--surface);
 }
 
 body.theme-dark #listType {
-  background-color: #232528;
-  color: #ffffff;
-  border: 1px solid #8075FF;
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px solid var(--primary);
   border-radius: 4px;
 }
 
 body.theme-dark button[type="submit"] {
-  background-color: #8075FF;
-  color: #ffffff;
-  border: 1px solid #5F55CC;
+  background-color: var(--primary);
+  color: var(--text);
+  border: 1px solid var(--primary-dark);
   border-radius: 4px;
   cursor: pointer;
 }
 
 body.theme-dark .url-form input {
-  background-color: #232528;
-  color: #ffffff;
-  border: 1px solid #A39BFF;
+  background-color: var(--background);
+  color: var(--text);
+  border: 1px solid var(--primary);
   border-radius: 4px;
 }
 
 body.theme-dark .theme-toggle button {
-  background: #2f3238;
-  border: 1px solid #8075FF;
-  color: #A39BFF;
+  background: var(--surface);
+  border: 1px solid var(--primary);
+  color: var(--primary-light);
 }
 
 body.theme-dark .theme-toggle button.selected {
-  background: #8075FF;
-  border-color: #5F55CC;
-  color: #ffffff;
+  background: var(--primary);
+  border-color: var(--primary-dark);
+  color: var(--text);
   font-weight: bold;
 }
 
 /* Theme: light */
 body.theme-light {
-  background-color: #f5f5f5;
-  color: #232528;
+  background-color: var(--light_background);
+  color: var(--light_text);
 }
 
 body.theme-light .tab-container {
-  border-bottom: 1px solid #ddd;
-  background-color: #ffffff;
+  border-bottom: 1px solid var(--line);
+  background-color: var(--light_surface);
 }
 
 body.theme-light .tab-btn {
-  color: #5F55CC;
+  color: var(--light_accent);
 }
 
 body.theme-light .tab-btn.active {
-  color: #232528;
-  border-bottom: 3px solid #8075FF;
+  color: var(--light_text);
+  border-bottom: 3px solid var(--light_accent);
 }
 
 body.theme-light .tab-content {
-  background-color: #ffffff;
+  background-color: var(--light_surface);
 }
 
 body.theme-light #listType {
-  background-color: #ffffff;
-  color: #232528;
-  border: 1px solid #8075FF;
+  background-color: var(--light_surface);
+  color: var(--light_text);
+  border: 1px solid var(--light_accent);
   border-radius: 4px;
 }
 
 body.theme-light button[type="submit"] {
-  background-color: #8075FF;
-  color: #ffffff;
-  border: 1px solid #5F55CC;
+  background-color: var(--light_accent);
+  color: var(--light_text);
+  border: 1px solid var(--light_accent);
   border-radius: 4px;
   cursor: pointer;
 }
 
 body.theme-light .url-form input {
-  background-color: #ffffff;
-  color: #232528;
-  border: 1px solid #A39BFF;
+  background-color: var(--light_surface);
+  color: var(--light_text);
+  border: 1px solid var(--light_accent);
   border-radius: 4px;
 }
 
 body.theme-light .theme-toggle button {
-  background: #ffffff;
-  border: 1px solid #8075FF;
-  color: #5F55CC;
+  background: var(--light_surface);
+  border: 1px solid var(--light_accent);
+  color: var(--light_accent);
 }
 
 body.theme-light .theme-toggle button.selected {
-  background: #8075FF;
-  border-color: #5F55CC;
-  color: #ffffff;
+  background: var(--light_accent);
+  border-color: var(--light_accent);
+  color: var(--light_text);
   font-weight: bold;
 }

@@ -2,12 +2,12 @@
 <html>
 <head>
   <link rel="stylesheet" href="../popup.css">
+  <script src="timer.js" defer></script>
 </head>
 <body class="shell">
 
   <div class="card">
     <div class="header">
-      <p class="eyebrow" id="statusDisplay">READY</p>
       <h1>Timer</h1>
     </div>
 
@@ -17,91 +17,23 @@
 
     <div class="configWrap">
       <div class="field">
-        <span>Duration</span>
+        <span>Configuration</span>
         <div class="customRow">
-          <input type="number" id="hours" min="0" value="0" placeholder="Hrs">
-          <input type="number" id="minutes" min="0" max="59" value="25" placeholder="Mins">
+          <input type="number" id="workHours" min="0" value="1" placeholder="Hrs">
+          <input type="number" id="workMins" min="0" max="59" value="0" placeholder="Mins">
         </div>
       </div>
+      <br>
+      
     </div>
 
     <div class="actions">
       <button class="btn primary" id="startBtn">Start</button>
-      <button class="btn" id="pauseBtn">Pause</button>
+      <button class="btn" id="stopBtn">Pause</button>
       <button class="btn danger" id="resetBtn">Reset</button>
     </div>
   </div>
 
-  <script>
-    const timeDisplay = document.getElementById('timeDisplay');
-    const statusDisplay = document.getElementById('statusDisplay');
-    const hoursInput = document.getElementById('hours');
-    const minutesInput = document.getElementById('minutes');
-    const startBtn = document.getElementById('startBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-
-    let displayInterval = null;
-
-    function formatTime(totalSeconds) {
-      const h = Math.floor(totalSeconds / 3600).toString().padStart(2, '0');
-      const m = Math.floor((totalSeconds % 3600) / 60).toString().padStart(2, '0');
-      const s = (totalSeconds % 60).toString().padStart(2, '0');
-      return `${h}:${m}:${s}`;
-    }
-
-    function syncDisplay() {
-      chrome.runtime.sendMessage({ action: 'COUNTDOWN_GET_STATE' }, (state) => {
-        if (!state) return;
-        timeDisplay.textContent = formatTime(state.remainingSeconds);
-
-        if (state.isRunning) {
-          statusDisplay.textContent = 'RUNNING';
-          startBtn.textContent = 'Running...';
-          startBtn.disabled = true;
-          if (!displayInterval) {
-            displayInterval = setInterval(syncDisplay, 1000);
-          }
-        } else if (state.remainingSeconds > 0) {
-          statusDisplay.textContent = 'PAUSED';
-          startBtn.textContent = 'Resume';
-          startBtn.disabled = false;
-          clearInterval(displayInterval);
-          displayInterval = null;
-        } else {
-          statusDisplay.textContent = 'READY';
-          startBtn.textContent = 'Start';
-          startBtn.disabled = false;
-          clearInterval(displayInterval);
-          displayInterval = null;
-        }
-      });
-    }
-
-    startBtn.addEventListener('click', () => {
-      const duration = (parseInt(hoursInput.value) || 0) * 3600
-                     + (parseInt(minutesInput.value) || 0) * 60;
-      if (duration <= 0) return;
-      chrome.runtime.sendMessage({ action: 'COUNTDOWN_START', duration }, () => syncDisplay());
-    });
-
-    pauseBtn.addEventListener('click', () => {
-      chrome.runtime.sendMessage({ action: 'COUNTDOWN_PAUSE' }, () => syncDisplay());
-    });
-
-    document.getElementById('resetBtn').addEventListener('click', () => {
-      const duration = (parseInt(hoursInput.value) || 0) * 3600
-                     + (parseInt(minutesInput.value) || 0) * 60;
-      chrome.runtime.sendMessage({ action: 'COUNTDOWN_RESET', duration }, () => {
-        timeDisplay.textContent = '00:00:00';
-        statusDisplay.textContent = 'READY';
-        startBtn.textContent = 'Start';
-        startBtn.disabled = false;
-        clearInterval(displayInterval);
-        displayInterval = null;
-      });
-    });
-
-    syncDisplay();
-  </script>
+  
 </body>
 </html>
