@@ -1,125 +1,39 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <style>
-      :root {
-        --text: #1b1b32;
-        --muted: #5f5f77;
-        --panel: #ffffff;
-        --accent: #d94f2a;
-        --accent-strong: #b93a17;
-      }
+<head>
+  <link rel="stylesheet" href="../popup.css">
+  <script src="timer.js" defer></script>
+</head>
+<body class="shell">
 
-      body {
-        margin: 0;
-        padding: 20px;
-        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-        background: var(--panel);
-        color: var(--text);
-        width: 260px;
-        text-align: center;
-      }
-
-      h1 {
-        font-size: 20px;
-        margin-bottom: 15px;
-        color: var(--text);
-      }
-
-      #timer-display {
-        font-size: 48px;
-        font-weight: bold;
-        margin: 20px 0;
-        color: var(--text);
-        display: grid;
-        grid-template-rows: 1; 
-        grid-template-columns: 2fr 1fr 2fr;
-        align-items: center;
-        justify-items: center;
-      }
-
-      #minute {
-        width: 22vw;
-        height: 12vw;
-        font-size: 100%;
-        text-align: center;
-        border-radius: 40%;
-        
-      }
-
-      #second{
-        width: 22vw;
-        height: 12vw; 
-        font-size: 100%;
-        text-align: center;
-        border-radius: 40%;
-      }
-
-      .controls {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 15px;
-      }
-
-      button {
-        flex: 1;
-        margin: 0 5px;
-        padding: 10px;
-        border: none;
-        border-radius: 6px;
-        background: var(--accent);
-        color: white;
-        font-size: 14px;
-        cursor: pointer;
-        transition: background 0.2s;
-      }
-
-      button:hover {
-        background: var(--accent-strong);
-      }
-
-      button.reset {
-        background: #5f5f77;
-      }
-
-      button.reset:hover {
-        background: #4a4a5f;
-      }
-    </style>
-  </head>
-    
-  <body>
-    <h1>Timer</h1>
-
-    <div id="timer-display">
-        <input 
-          id="minute"   
-          type="number" 
-          min="0" 
-          step="1" 
-          pattern="\d+" />
-
-        <p id="colon">:</p>
-
-        <input 
-          id="second"
-          type="number" 
-          min="0" 
-          step="1" 
-          pattern="\d+" 
-          />
+  <div class="card">
+    <div class="header">
+      <h1>Timer</h1>
     </div>
 
-    <div class="controls">
-      <button id="start">Start</button>
-      <button id="pause">Pause</button>
-      <button id="reset" class="reset">Reset</button>
+    <div class="timerWrap">
+      <div class="time" id="timeDisplay">00:00:00</div>
     </div>
-  <script>
-<body>
-  <h1>Timer</h1>
-  <!-- <script>
-    console.log("Timer logic here");
-  </script> -->
+
+    <div class="configWrap">
+      <div class="field">
+        <span>Configuration</span>
+        <div class="customRow">
+          <input type="number" id="workHours" min="0" value="1" placeholder="Hrs">
+          <input type="number" id="workMins" min="0" max="59" value="0" placeholder="Mins">
+        </div>
+      </div>
+      <br>
+      
+    </div>
+
+    <div class="actions">
+      <button class="btn primary" id="startBtn">Start</button>
+      <button class="btn" id="stopBtn">Pause</button>
+      <button class="btn danger" id="resetBtn">Reset</button>
+    </div>
+  </div>
+
+  
 </body>
 </html>

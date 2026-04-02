@@ -1,13 +1,13 @@
-
+@import "../main.css";
 
 :root {
-  --text: #1b1b32;
+  --text: #E8E9F2;
   --muted: #5f5f77;
-  --panel: #ffffff;
-  --accent: #d94f2a;
-  --accent-strong: #b93a17;
+  --panel: #2F3238;
+  --accent: #6FA9C9;
+  --accent-strong: #E8E9F2;
   --danger: #a12323;
-  --line: #e6e1dd;
+  --line: #232528;
   --shadow: 0 14px 32px rgba(20, 16, 26, 0.16);
 }
 
@@ -19,10 +19,7 @@ body {
   margin: 0;
   min-width: 340px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-  background:
-    radial-gradient(circle at 0% 0%, #ffd7bf 0%, transparent 38%),
-    radial-gradient(circle at 100% 100%, #ffe8cd 0%, transparent 32%),
-    linear-gradient(140deg, #fff8f2, #f7f4ff);
+  background-color: #232528;
   color: var(--text);
 }
 
@@ -40,7 +37,7 @@ body {
 
 .header {
   padding: 14px 16px 10px;
-  background: linear-gradient(120deg, #fff5ee, #fff9f3);
+  background: linear-gradient(120deg, #8075FF, #232528);
 }
 
 .eyebrow {
@@ -61,7 +58,7 @@ body {
   margin: 10px 12px;
   border-radius: 14px;
   padding: 14px;
-  background: linear-gradient(140deg, #fffaf6, #f6f7ff);
+  background: linear-gradient(140deg, #232528, #232528);
   border: 1px solid var(--line);
 }
 
@@ -113,7 +110,7 @@ select {
   border-radius: 10px;
   padding: 8px 9px;
   font-size: 14px;
-  background: #ffffff;
+  background: #232528;
   color: var(--text);
 }
 
@@ -128,7 +125,7 @@ select {
   border: 1px solid transparent;
   padding: 10px 8px;
   border-radius: 10px;
-  background: #ece8f0;
+  background: linear-gradient(135deg, #685fce71, #2F3238);
   color: var(--text);
   font-weight: 600;
   cursor: pointer;
@@ -141,20 +138,20 @@ select {
 }
 
 .btn.primary {
-  background: linear-gradient(135deg, var(--accent), #f16a3e);
+  background: linear-gradient(135deg, #8075FF, #2F3238);
   color: #fff;
 }
 
 .btn.danger {
-  background: #f8e1e1;
-  color: var(--danger);
+  background: linear-gradient(135deg, #42464e, #1a1c1f );
+  color: var(--text);
 }
 
 .btn.ghost {
   margin-top: 8px;
   width: 100%;
-  border-color: #e6d8cd;
-  background: #fff5ee;
+  border-color: #2F3238;
+  background: #2F3238;
   color: var(--accent-strong);
 }
 
